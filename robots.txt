@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lazoila.ar/sitemap.xml
+Sitemap: https://lazoila.ar/sitemap.xml
