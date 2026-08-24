@@ -1,28 +1,30 @@
 const GA_MEASUREMENT_ID = "G-XNB5QZJEJ1";
 
 window.dataLayer = window.dataLayer || [];
-function gtag() {
+window.gtag = function gtag() {
   window.dataLayer.push(arguments);
-}
+};
 
 const gaScript = document.createElement("script");
 gaScript.async = true;
 gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
 document.head.appendChild(gaScript);
 
-gtag("js", new Date());
-gtag("config", GA_MEASUREMENT_ID);
+window.gtag("js", new Date());
+window.gtag("config", GA_MEASUREMENT_ID);
 
 const header = document.querySelector(".site-header");
 const form = document.querySelector(".lead-form");
 
 function updateHeader() {
-  header.classList.toggle("is-solid", window.scrollY > 42);
+  if (header) {
+    header.classList.toggle("is-solid", window.scrollY > 42);
+  }
 }
 
 function trackEvent(eventName, parameters = {}) {
-  if (typeof gtag === "function") {
-    gtag("event", eventName, parameters);
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, parameters);
   }
 }
 
